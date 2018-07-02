@@ -3,9 +3,6 @@
     <title>Домашка 2</title>
 </head>
 <body>
-<?php
-include __DIR__ . '/my_function.php';
-?>
 <h3>Конъюнкция</h3>
         <table border="1">
         <tr align="center">
@@ -18,7 +15,7 @@ include __DIR__ . '/my_function.php';
             <td>0</td>
             <td>
                 <?php
-                echo conj(0,0);
+                echo (int)(false && false);
                 ?>
             </td>
         </tr>
@@ -27,7 +24,7 @@ include __DIR__ . '/my_function.php';
             <td>1</td>
             <td>
                 <?php
-                echo conj(0,1);
+                echo (int)(false && true);
                 ?>
             </td>
         </tr">
@@ -36,7 +33,7 @@ include __DIR__ . '/my_function.php';
             <td>0</td>
             <td>
                 <?php
-                echo  conj(1,0);
+                echo  (int)(true && false);
                 ?>
             </td>
         </tr>
@@ -45,7 +42,7 @@ include __DIR__ . '/my_function.php';
             <td>1</td>
             <td>
                 <?php
-                echo conj(1,1)
+                echo (int)(true && true);
                 ?>
             </td>
         </tr>
@@ -62,7 +59,7 @@ include __DIR__ . '/my_function.php';
         <td>0</td>
         <td>
             <?php
-            echo  dizj(0,0);
+            echo (int)(false || false);
             ?>
         </td>
     </tr>
@@ -71,7 +68,7 @@ include __DIR__ . '/my_function.php';
         <td>1</td>
         <td>
             <?php
-            echo  dizj(0,1);
+            echo  (int)(false || true);
             ?>
         </td>
     </tr">
@@ -80,7 +77,7 @@ include __DIR__ . '/my_function.php';
         <td>0</td>
         <td>
             <?php
-            echo  dizj(1,0);
+            echo  (int)(true || false);
             ?>
         </td>
     </tr>
@@ -89,7 +86,7 @@ include __DIR__ . '/my_function.php';
         <td>1</td>
         <td>
             <?php
-            echo  dizj(1,1);
+            echo  (int)(true || true);
             ?>
         </td>
     </tr>
@@ -106,7 +103,7 @@ include __DIR__ . '/my_function.php';
             <td>0</td>
             <td>
                 <?php
-               echo summod2(0,0);
+               echo (int)(false xor false);
                 ?>
             </td>
         </tr>
@@ -115,7 +112,7 @@ include __DIR__ . '/my_function.php';
             <td>1</td>
             <td>
                 <?php
-                echo summod2(0,1);
+                echo (int)(false xor true);
                 ?>
             </td>
         </tr">
@@ -124,7 +121,7 @@ include __DIR__ . '/my_function.php';
             <td>0</td>
             <td>
                 <?php
-                echo summod2(1,0);
+                echo (int)(true xor false);
                 ?>
             </td>
         </tr>
@@ -133,7 +130,7 @@ include __DIR__ . '/my_function.php';
             <td>1</td>
             <td>
                 <?php
-                echo summod2(1,1);
+                echo (int)(true xor true);
                 ?>
             </td>
         </tr>
