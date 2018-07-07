@@ -43,8 +43,6 @@ function sexid($a) {
         return 'мужчина';
     } elseif (substr($a, -2) == 'ш'){
         return 'мужчина';
-    } elseif (substr($a, -2) == 'щ'){
-        return 'мужчина';
     } elseif ($a == 'Никита'){
         return 'мужчина';
     } elseif ($a == 'Савва'){
