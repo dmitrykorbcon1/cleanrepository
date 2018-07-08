@@ -4,23 +4,32 @@
 </head>
 <body>
 <?php
-$first = $_GET['first_num'];
-$second = $_GET['second_num'];
-$operator = $_GET['operator'];
+if (isset($_GET['first_num']) == null) {
+    $first = 0;
+    } else {
+    $first = $_GET['first_num'];
+    }
+if (isset($_GET['second_num']) == null) {
+    $second = 0;
+    } else {
+    $second = $_GET['second_num'];
+    }
+if (isset($_GET['operator']) == null) {
+    $operator = '+';
+    } else {
+    $operator = $_GET['operator'];
+    }
 if ($operator == '+') {
     $result = $first + $second;
-   }
-elseif ($operator == '-'){
+   } elseif ($operator == '-') {
     $result = $first - $second;
-  }
-elseif ($operator == '/') {
+   } elseif ($operator == '/') {
     $result = $first / $second;
-    }
-elseif ($operator == '*'){
+   } elseif ($operator == '*') {
     $result = $first * $second;
     }
 ?>
-<form action="1_3.php" method="get">
+<form action="/cleanrepository/DZ3/2/Index.php" method="get">
     <input type="text" name="first_num"
     value="<?php echo $first; ?>">
     <select size="4" name="operator">
@@ -34,7 +43,6 @@ elseif ($operator == '*'){
     <input type="text" name="result"
     value="<?php echo $result; ?>">
 </form>
-
 <!--Данные из формы будем передавать через
 суперглобальный массив методом GET обратно в файл и помещаться в соответствтующие поля формы. Результат будет
 помещаться в переменную result и выводится в окне result формы-->

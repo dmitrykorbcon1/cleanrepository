@@ -4,7 +4,7 @@
 </head>
 <body>
 <br>
-<form action="5.php" method="get">
+<form action="/cleanrepository/DZ3/1/Showresult.php" method="get">
     <input type="text" name="first_num">
     <select size="3" name="operator">
         <option value="+">+</option>
@@ -15,10 +15,9 @@
     <input type="text" name="second_num">
     <input type="submit" value="Равно">
     </form>
-<?php
-// создаем простейшую форму для ввода чисел и выбора знака операции. Данные из формы будем передавать через
+<!--// создаем простейшую форму для ввода чисел и выбора знака операции. Данные из формы будем передавать через
 // суперглобальный массив методом GET. В этом массиве в качестве ключа выступают имена полей формы name и value,
 // а в качестве значений - введённые числа и тип оператора (в виде соответствующей строки).
-?>
+-->
 </body>
 </html>

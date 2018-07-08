@@ -1,12 +1,7 @@
-<html>
-<head>
-    <title>Домашка 3</title>
-</head>
-<body>
 <?php
-$arr = [1=>'Car1.jpg', 2=>'Car2.jpg', 3=>'Car3.jpg', 4=>'Car4.jpg'];
-//создаём массив, парами ундекс-значение которого являются порядковый номер изображения и его имя в
-// папке /Photo (можно использовать и ссылку на внешний ресурс)
-?>
-</body>
-</html>
+$arr = [1=>'/cleanrepository/DZ3/3/Photo/Car1.jpg',
+        2=>'/cleanrepository/DZ3/3/Photo/Car2.jpg',
+        3=>'/cleanrepository/DZ3/3/Photo/Car3.jpg',
+        4=>'/cleanrepository/DZ3/3/Photo/Car4.jpg'];
+//создаём массив, парами ундекс-значение которого являются порядковый номер изображения и полный путь до него
+
