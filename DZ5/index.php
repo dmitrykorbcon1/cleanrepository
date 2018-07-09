@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>Домашка 5</title>
+</head>
+<body>
+<?php
+$list = scandir(__DIR__. '/Photo');
+$list = array_diff($list, ['.', '..']);
+foreach ($list as $img) {
+    ?>
+<img src="/cleanrepository/DZ5/Photo/<?php echo $img; ?>" height="250">
+    <?php
+}
+?>
+<html>
+<body>
+<br>
+<br>
+<form action="/cleanrepository/DZ5/upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="myimg">
+    <button type="submit">Загрузить...</button>
+</form>
+</body>
+</html>
