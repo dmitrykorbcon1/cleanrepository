@@ -1,15 +1,27 @@
-<html>
+<!doctype html>
+<html lang="ru">
 <head>
-    <title>Домашка 3</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Галерея</title>
 </head>
 <body>
+
 <?php
-include __DIR__ . '/Massive.php';
+
+include __DIR__ . '/massive.php';
 //включаем из файла Massive.php массив $arr и с помощью его выводим стандартными средствами HTML несколько изображений
+foreach ($arr as $id => $img) {
+
 ?>
-<a href="/cleanrepository/DZ3/3/image.php?id=1"><img src="<?php echo $arr[1] ?>" width="400" ></a>
-<a href="/cleanrepository/DZ3/3/image.php?id=2"><img src="<?php echo $arr[2] ?>" width="370" ></a>
-<a href="/cleanrepository/DZ3/3/image.php?id=3"><img src="<?php echo $arr[3] ?>" width="348" ></a>
-<a href="/cleanrepository/DZ3/3/image.php?id=4"><img src="<?php echo $arr[4] ?>" width="400" ></a>
+    <a href="/DZ3/3/image.php?id=<?php echo $id; ?>"><img src="<?php echo $img; ?>" height="220" ></a>
+<?php
+
+}
+
+?>
+
 </body>
 </html>

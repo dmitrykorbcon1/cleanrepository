@@ -1,13 +1,20 @@
-<html>
+<!doctype html>
+<html lang="ru">
 <head>
-    <title>Домашка 3</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Галерея 2</title>
 </head>
 <body>
+
 <?php
-include __DIR__ . '/Massive.php';
-//включаем из файла Massive.php массив $arr и с помощью его выводим стандартными средствами HTML несколько изображений
+
+include __DIR__ . '/massive.php';
+
 ?>
-<img src="<?php echo $arr[$_GET['id']] ?>">
+<img src="<?php echo $arr[$_GET['id']]; ?>">
 <!-- выводим нужное нам изображение по имени файла в ссылке, примязанному к его id, значение которого передаётся через
 суперглобальный массив get из массива $arr.  -->
 </body>

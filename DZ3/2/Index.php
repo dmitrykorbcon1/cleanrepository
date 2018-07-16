@@ -1,44 +1,53 @@
-<html>
+<!doctype html>
+<html lang="ru">
 <head>
-    <title>Домашка 2</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Калькулятор 2</title>
 </head>
 <body>
+
 <?php
-if (isset($_GET['first_num']) == null) {
+
+if (isset($_GET['firstNum']) == null ) {
     $first = 0;
     } else {
-    $first = $_GET['first_num'];
+    $first = $_GET['firstNum'];
     }
-if (isset($_GET['second_num']) == null) {
+if (isset($_GET['secondNum']) == null ) {
     $second = 0;
     } else {
-    $second = $_GET['second_num'];
+    $second = $_GET['secondNum'];
     }
-if (isset($_GET['operator']) == null) {
+if (isset($_GET['operator']) == null ) {
     $operator = '+';
     } else {
     $operator = $_GET['operator'];
     }
 if ($operator == '+') {
     $result = $first + $second;
-   } elseif ($operator == '-') {
+    } elseif ($operator == '-') {
     $result = $first - $second;
-   } elseif ($operator == '/') {
+    } elseif ($operator == '/') {
     $result = $first / $second;
-   } elseif ($operator == '*') {
+    } elseif ($operator == '*') {
     $result = $first * $second;
     }
+
 ?>
-<form action="/cleanrepository/DZ3/2/Index.php" method="get">
-    <input type="text" name="first_num"
+
+<form action="/DZ3/2/index.php" method="get">
+    <input type="text" name="firstNum"
     value="<?php echo $first; ?>">
     <select size="4" name="operator">
-        <option <?php if ($operator=='+') echo 'selected';?> value="+">+</option>
-        <option <?php if ($operator=='-') echo 'selected';?> value="-">-</option>
-        <option <?php if ($operator=='/') echo 'selected';?> value="/">/</option>
-        <option <?php if ($operator=='*') echo 'selected';?> value="*">*</option>
+        <option <?php if ($operator=='+') echo 'selected'; ?> value="+">+</option>
+        <option <?php if ($operator=='-') echo 'selected'; ?> value="-">-</option>
+        <option <?php if ($operator=='/') echo 'selected'; ?> value="/">/</option>
+        <option <?php if ($operator=='*') echo 'selected'; ?> value="*">*</option>
     </select>
-    <input type="text" name="second_num" value="<?php echo $second ?>">
+    <input type="text" name="secondNum" value="<?php echo $second; ?>">
     <input type="submit" value="Равно">
     <input type="text" name="result"
     value="<?php echo $result; ?>">
