@@ -1,5 +1,5 @@
 <?php
-class TextFile //родительский класс производит действия с файлами как таковыми, а класс наследник-действия с данными в файле. Как-то так.
+class TextFile
 {
     protected $data;
 
@@ -22,4 +22,4 @@ class TextFile //родительский класс производит дей
             file_put_contents($this->put, implode("\r\n", $this->data));
         }
 }
-$guests = new TextFile(__DIR__ . '/../guestbook.txt');
+//$guests = new TextFile(__DIR__ . '/../guestbook.txt');

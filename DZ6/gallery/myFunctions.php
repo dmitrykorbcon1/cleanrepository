@@ -35,9 +35,10 @@ function checkPassword($login, $password){
     }
 }
 
-function getCurrentUser() {
-    if (isset($_SESSION['login'])) {
-        if (null !== $_SESSION['login']) {
+function getCurrentUser()
+{
+    if ( isset($_SESSION['login']) ) { //пользователь стартанул сессию
+        if ( existsUser($_SESSION['login']) ) {  //есть ли пользователь с таким логином
             return $_SESSION['login'];
         }
     }

@@ -8,4 +8,4 @@ $gbook -> append($_POST['newComment']) ; //добавляем в массив д
 
 $gbook -> save(); // записываем новый массив в текстовый файл
 
-header('Location: /cleanrepository/DZ6/guestbook.php');//перенаправляем обработчик на главную страницу
+header('Location: /DZ6/index.php');//перенаправляем обработчик на главную страницу
