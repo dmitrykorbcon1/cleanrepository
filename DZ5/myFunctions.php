@@ -1,5 +1,6 @@
 <?php
-function getUsersList() {//  возвращает массив пользователей и их захешенные пароли
+function getUsersList()
+{//  возвращает массив пользователей и их захешенные пароли
 $users = [
      ['login' => 'Vasya' , 'password' => '$2y$10$jX5s54otd9sNGysTSj3YXuVUJx9HXrarsBrJVjl4BE/avPoZs9kxC'], //123
      ['login' => 'Petya' , 'password' => '$2y$10$jQJrK6bJHGLChc2jsStOWeAOEubB4QOaxu0q1bqq5lSi1jOlxKVgO'],  //1234
@@ -12,7 +13,8 @@ return $users;
 //echo password_hash('124567', PASSWORD_DEFAULT);
 //echo password_verify('124567','$2y$10$WDCB6IyUfXulNjVvFBPDCOwkMHEKsWukT9SOD6uwPgEUs1Pa0gW66');
 
-function existsUser($login){   // существует ли пользователь с заданным логином?
+function existsUser($login)
+{   // существует ли пользователь с заданным логином?
     if (true === in_array($login, array_column(getUsersList(), 'login'))) {
         return true;
     } else {
@@ -20,25 +22,26 @@ function existsUser($login){   // существует ли пользовате
     }
 }
 
-function checkPassword($login, $password){
+function checkPassword($login, $password)
+{
     if (true === existsUser($login)) {
         foreach (getUsersList() as $users) {
             if ($login === $users['login']) {
-                if (true === password_verify($password, $users['password']))  {
-                  return true;
+                if (true === password_verify($password, $users['password'])) {
+                    return true;
                 }
             }
         }
-    }
-   else {
+    } else {
         return false;
     }
 }
 
-function getCurrentUser() {
-    if (isset($_SESSION['login'])) {
-        if (null !== $_SESSION['login']) {
-            return $_SESSION['login'];
+function getCurrentUser()
+{
+    if ( isset($_SESSION['login']) ) { //пользователь стартанул сессию
+            if ( existsUser($_SESSION['login']) ) {  //есть ли пользователь с таким логином
+                return $_SESSION['login'];
+            }
         }
-    }
 }

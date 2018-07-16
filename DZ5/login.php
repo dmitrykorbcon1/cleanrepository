@@ -1,10 +1,15 @@
 <?php
+
 session_start();
+
 include __DIR__ . '/myFunctions.php';
-if (null !== getCurrentUser()){
-    header('Location: /cleanrepository/DZ5/index.php');
+
+if (null !== getCurrentUser()) {
+    header('Location: /DZ5/index.php');
     exit;
-} else {
+}
+if (null == getCurrentUser()) {
+
     if (isset($_POST['login'])) {
         $login = $_POST['login'];
     } else {
@@ -19,35 +24,39 @@ if (null !== getCurrentUser()){
 
     if (true === existsUser($login)) {
         if (true === checkPassword($login, $password)) {
-            header('Location: /cleanrepository/DZ5/index.php');
+            header('Location: /DZ5/index.php');
             $_SESSION['login'] = $login;
             exit;
         }
-    } else {
-        echo 'Введите логин и пароль!';
     }
 }
+
 ?>
-<html>
-    <head>
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Авторизация</title>
-    </head>
-    <body>
-         <form action="/cleanrepository/DZ5/login.php" method="post">
-            <table align=left>
-                <tr>
-                    <td>Login</td>
-                    <td><input type="text" name="login"/></td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td><input type="password" name="password"/></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" value="Вход"/></td>
-                </tr>
-            </table>
-         </form>
-    </body>
+</head>
+<body>
+Введите логин и пароль!
+    <form action="/DZ5/login.php" method="post">
+        <table align=left>
+        <tr>
+            <td>Login</td>
+            <td><input type="text" name="login"/></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="password"/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Вход"/></td>
+        </tr>
+        </table>
+    </form>
+</body>
 </html>
