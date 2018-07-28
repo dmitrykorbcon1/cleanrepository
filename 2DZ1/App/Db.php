@@ -12,24 +12,32 @@ class Db
         $this->dbh = new \PDO( 'mysql:host=localhost;dbname=news', 'root', '' );
     }
 
-    public function query( string $sql, string $class, $data = [] )
+    public function query( string $sql, string $class, array $params = [] )
     {
         $sth = $this->dbh->prepare( $sql );
 
-        $sth->execute( $data );
-
         if ( false !== $sth ) {
+            if ( $sth->execute( $params ) ) {
 
-            return $sth->fetchAll( \PDO::FETCH_CLASS, $class );
+                return $sth->fetchAll( \PDO::FETCH_CLASS, $class );
+            }
         }
     }
 
-    public function exequte( $query, $params = [] ) //проверка на корректность синтаксиса запроса
+    public function exequte( string $query, array $params = [] )
     {
         $sth = $this->dbh->prepare( $query );
 
-        return  $sth->execute( $params ); //если запрос выполнен-возвращает true
+        if ( false !== $sth ) {
+
+            return  $sth->execute( $params );
+        }
+
+        return false;
     }
+
+
+
 
 }
 

@@ -1,8 +1,8 @@
 <?php
 
-require __DIR__ .'/autoload.php';
+require __DIR__ . '/autoload.php';
 
-$data = \App\Models\Article::lastNews( 3 );
+$data = \App\Models\Article::findLast( 3 );
 
-require __DIR__ .'/templates/index.php';
+include __DIR__ . '/templates/index.php';
 

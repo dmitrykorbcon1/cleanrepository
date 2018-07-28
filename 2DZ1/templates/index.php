@@ -8,22 +8,17 @@
     <title>Статья</title>
 </head>
 <body>
-<?php
-foreach ( $data as $article ) {
 
-?>
+    <?php foreach ( $data as $article ) { ?>
 
-<h2>
-    <a href="/2DZ1/article.php?id=<?php echo $article->getId(); ?>">
-        <?php echo $article->getHead(); ?>
-    </a>
-</h2>
+        <h2>
+            <a href="/2DZ1/article.php?id=<?php echo $article->getId(); ?>">
+                <?php echo $article->getHead(); ?>
+            </a>
+        </h2>
 
-<?php
+    <?php } ?>
 
-}
-
-?>
 
 </body>
 </html>

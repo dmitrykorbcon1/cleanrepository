@@ -11,22 +11,18 @@ class Article extends Model
 
     protected static $table = 'news';
 
-    protected $id;
-
     protected  $head;
-
     protected  $text;
-
     protected  $author;
 
-    public static function lastNews( int $n ) //вывод последних n новостей
+    public static function findLast(int $n) //вывод последних n новостей
     {
         $db = new Db();
 
         $sql = 'SELECT * FROM ' . static::$table . ' ORDER BY id DESC LIMIT ' . $n ;
 
 
-        $data = $db->query( $sql, static::class, [] );
+        $data = $db->query( $sql, static::class);
 
         return $data;
     }
@@ -46,10 +42,6 @@ class Article extends Model
         return $this->author;
     }
 
-    public function getId()
-    {
-        return $this->id;
-    }
 }
 
 

@@ -10,15 +10,14 @@
 <body>
 
 <h3>
-    <?php echo $data->getHead() ?>
+    <?php echo $head; ?>
 </h3>
 
 <article>
-    <?php echo $data->getText(); ?>
+    <?php echo $text; ?>
 </article>
 <br>
-<?php echo $data->getAuthor(); ?>
-
+<?php echo $author; ?>
 
 </body>
 </html>
