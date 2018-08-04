@@ -18,10 +18,10 @@
     </tr>
     <?php foreach ($data as $name) { ?>
         <tr align="center">
-            <td width="50"><?php echo $name->getId() ?></td>
-            <td width="100"><?php echo $name->getHead() ?></td>
-            <td width="250"><?php echo $name->getText() ?></td>
-            <td width="100"><?php echo $name->getAuthor() ?></td>
+            <td width="50"><?php echo $name->getId(); ?></td>
+            <td width="100"><?php echo $name->getHead(); ?></td>
+            <td width="250"><?php echo $name->getText(); ?></td>
+            <td width="100"><?php echo $name->getAuthor(); ?></td>
         </tr>
     <?php } ?>
 </table>
