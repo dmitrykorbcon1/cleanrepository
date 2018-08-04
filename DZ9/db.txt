@@ -1,0 +1,47 @@
+﻿[2018-07-20 00:47:34] Connected
+sql> use trains
+[2018-07-20 00:47:34] completed in 2ms
+sql> CREATE TABLE trains (id SERIAL, trnum VARCHAR(8),trname VARCHAR(120), arriv VARCHAR(5), depa VARCHAR(5))
+[2018-07-20 00:47:34] completed in 214ms
+[2018-07-20 00:49:50] Disconnected
+[2018-07-20 00:49:50] Connected
+sql> use trains
+[2018-07-20 00:49:50] completed in 2ms
+sql> INSERT INTO trains (trnum, trname, arriv, depa) VALUES ('147Я', 'Кострома-Москва', '00:37', '00:42')
+[2018-07-20 00:49:50] 1 row affected in 72ms
+[2018-07-20 00:52:55] Disconnected
+[2018-07-20 00:52:55] Connected
+sql> use trains
+[2018-07-20 00:52:55] completed in 2ms
+sql> INSERT INTO trains (trnum, trname, arriv, depa) VALUES ('148Я', 'Москва-Кострома', '04:20', '04:36')
+[2018-07-20 00:52:55] 1 row affected in 42ms
+[2018-07-20 00:54:21] Disconnected
+[2018-07-20 00:54:21] Connected
+sql> use trains
+[2018-07-20 00:54:21] completed in 2ms
+sql> INSERT INTO trains (trnum, trname, arriv, depa) VALUES ('045А', 'Санкт-Петербург-Иваново', '07:43', '07:48')
+[2018-07-20 00:54:21] 1 row affected in 20ms
+[2018-07-20 00:55:37] Disconnected
+[2018-07-20 00:55:37] Connected
+sql> use trains
+[2018-07-20 00:55:37] completed in 3ms
+sql> INSERT INTO trains (trnum, trname, arriv, depa) VALUES ('337Ж', 'Санкт-Петербург-Самара', '08:42', '08:47')
+[2018-07-20 00:55:37] 1 row affected in 26ms
+[2018-07-20 00:56:59] Disconnected
+[2018-07-20 00:56:59] Connected
+sql> use trains
+[2018-07-20 00:56:59] completed in 2ms
+sql> INSERT INTO trains (trnum, trname, arriv, depa) VALUES ('495Я', 'Кострома-Адлер', '11:05', '11:37')
+[2018-07-20 00:56:59] 1 row affected in 20ms
+[2018-07-20 00:58:33] Disconnected
+[2018-07-20 00:58:33] Connected
+sql> use trains
+[2018-07-20 00:58:33] completed in 1ms
+sql> INSERT INTO trains (trnum, trname, arriv, depa) VALUES ('099Э', 'Владивосток-Москва', '06:08', '06:10')
+[2018-07-20 00:58:33] 1 row affected in 10ms
+[2018-07-20 01:00:48] Disconnected
+[2018-07-20 01:00:48] Connected
+sql> use trains
+[2018-07-20 01:00:48] completed in 2ms
+sql> INSERT INTO trains (trnum, trname, arriv, depa) VALUES ('539Я', 'Кострома-Анапа', '09:56', '10:28')
+[2018-07-20 01:00:48] 1 row affected in 47ms
