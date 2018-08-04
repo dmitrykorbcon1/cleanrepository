@@ -1,0 +1,21 @@
+﻿2018-07-17 21:31:53] Connected
+sql> CREATE TABLE news (id SERIAL, head VARCHAR(80), text TEXT, author VARCHAR(80))
+[2018-07-17 21:31:53] completed in 350ms
+[2018-07-17 21:37:16] Disconnected
+[2018-07-17 21:37:17] Connected
+sql> use news
+[2018-07-17 21:37:17] completed in 3ms
+sql> INSERT INTO news (head, text, author) VALUES ('Заголовок 1', 'Текст 1', 'Автор 1')
+[2018-07-17 21:37:17] 1 row affected in 144ms
+sql> INSERT INTO news (head, text, author) VALUES ('Заголовок 2', 'Текст 2', 'Автор 2')
+[2018-07-17 21:37:55] 1 row affected in 24ms
+sql> INSERT INTO news (head, text, author) VALUES ('Заголовок 3', 'Текст 3', 'Автор 3')
+[2018-07-17 21:38:55] 1 row affected in 19ms
+sql> INSERT INTO news (head, text, author) VALUES ('Заголовок 4', 'Текст 4', 'Автор 4')
+[2018-07-17 21:39:54] 1 row affected in 82ms
+[2018-07-17 21:42:32] Disconnected
+[2018-07-17 21:42:32] Connected
+sql> use news
+[2018-07-17 21:42:32] completed in 4ms
+sql> SELECT * FROM news
+[2018-07-17 21:42:33] 4 rows retrieved starting from 1 in 250ms (execution: 48ms, fetching: 202ms)
