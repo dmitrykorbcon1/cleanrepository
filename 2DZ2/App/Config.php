@@ -6,7 +6,7 @@ class Config
 {
     public $data;
 
-    protected static $config;
+    protected static $instance;
 
     protected function __construct() //защищённый конструктор
     {
@@ -15,11 +15,11 @@ class Config
 
     public static function instance()
     {
-        if ( null === self::$config ) {
-            self::$config = new self;
+        if ( null === self::$instance ) {
+            self::$instance = new self;
         }
 
-        return self::$config;
+        return self::$instance;
     }
 }
 
