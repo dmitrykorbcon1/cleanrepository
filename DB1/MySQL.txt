@@ -1,0 +1,32 @@
+﻿1. Создание базы данных, двух таблиц и наполнение их данными.
+  
+CREATE DATABASE testbase;
+
+CREATE TABLE `books` (`id` SERIAL, `head` VARCHAR(100), `release` YEAR(4), `author` VARCHAR(100), `price` FLOAT);
+
+INSERT INTO `books` (`head`, `release`, `author`, `price`) VALUES ('О дивный новый мир', 1932, 'Хаксли', 290);
+INSERT INTO `books` (`head`, `release`, `author`, `price`) VALUES ('Час быка', 1970, 'Ефремов', 340);
+INSERT INTO `books` (`head`, `release`, `author`, `price`) VALUES ('Солярис', 1961, 'Лем', 311);
+INSERT INTO `books` (`head`, `release`, `author`, `price`) VALUES ('Трудно быть богом', 1964, 'А. и Б.Стругацкие', 360);
+INSERT INTO `books` (`head`, `release`, `author`, `price`) VALUES ('Свет былого', 1993, 'Б.Шоу', 400);
+INSERT INTO `books` (`head`, `release`, `author`, `price`) VALUES ('Лезвие бритвы', 1963, 'Ефремов', 340);
+INSERT INTO `books` (`head`, `release`, `author`, `price`) VALUES ('Ночной дозор', 1998, 'Лукьяненко', 511);
+INSERT INTO `books` (`head`, `release`, `author`, `price`) VALUES ('Конец вечности', 1955, 'Азимов', 600);
+INSERT INTO `books` (`head`, `release`, `author`, `price`) VALUES ('Тёмная башня', 2004, 'Кинг', 940);
+
+CREATE TABLE `publishers` (`id` SERIAL, `title` VARCHAR(100));
+
+INSERT INTO `publishers` (`title`) VALUES ('АСТ');
+INSERT INTO `publishers` (`title`) VALUES ('Белый город');
+INSERT INTO `publishers` (`title`) VALUES ('Эксмо');
+INSERT INTO `publishers` (`title`) VALUES ('Прогресс');
+
+2.Запросы к БД.
+
+SELECT * FROM `books` WHERE `author`='Ефремов';
+SELECT * FROM `books` WHERE `price`<=500;
+SELECT `head`,`release` FROM `books` WHERE `author`='Ефремов' ORDER BY `release`;
+SELECT `author` FROM `books` WHERE `release`>=1990 AND `release`<= 2000;
+
+
+
