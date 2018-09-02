@@ -12,8 +12,8 @@ class Admin extends \App\Controller
 {
     protected function action()
     {
-        $this->view->articles = \App\Models\Article::findAll();
+        $this->view->data = \App\Models\Article::findAll();
 
-        $this->view->display(__DIR__ . '/../Templates/all.php');
+        $this->view->display(__DIR__ . '/../Templates/admin.php');
     }
 }
