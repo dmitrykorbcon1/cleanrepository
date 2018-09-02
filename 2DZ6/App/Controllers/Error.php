@@ -23,6 +23,6 @@ class Error extends \App\Controller
 
         $this->view->resource = Timer::resourceUsage();
 
-        $this->view->display(__DIR__ . '/../Templates/errors.php');
+        $this->view->display( __DIR__ . '/../Templates/errors.php');
     }
 }

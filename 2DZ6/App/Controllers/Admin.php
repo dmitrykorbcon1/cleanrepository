@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-//use App\Models\Article;
-
 use SebastianBergmann\Timer\Timer;
 
 /**
@@ -14,10 +12,10 @@ class Admin extends \App\Controller
 {
     protected function action()
     {
-        $this->view->articles = \App\Models\Article::findAll();
+        $this->view->data = \App\Models\Article::findAll();
 
         $this->view->resource = Timer::resourceUsage();
 
-        $this->view->display(__DIR__ . '/../Templates/all.php');
+        $this->view->display(__DIR__ . '/../Templates/admin.php');
     }
 }

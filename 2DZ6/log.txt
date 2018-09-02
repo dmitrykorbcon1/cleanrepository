@@ -6,3 +6,5 @@
 //Date errors : 2018-08-18 23:27:19//Text error: Ошибка подключения к БД!//File error: C:\OSPanel\domains\cleanrepository\2DZ6\App\Db.php
 //Date errors : 2018-08-18 23:27:20//Text error: Ошибка подключения к БД!//File error: C:\OSPanel\domains\cleanrepository\2DZ6\App\Db.php
 //Date errors : 2018-08-18 23:27:22//Text error: Ошибка подключения к БД!//File error: C:\OSPanel\domains\cleanrepository\2DZ6\App\Db.php
+//Date errors : 2018-09-03 00:02:22//Text error: Ошибка 404. Запись-не найдена//File error: C:\OSPanel\domains\cleanrepository\2DZ6\App\Controllers\Article.php
+//Date errors : 2018-09-03 00:04:00//Text error: Ошибка 404. Запись-не найдена//File error: C:\OSPanel\domains\cleanrepository\2DZ6\App\Controllers\Article.php
