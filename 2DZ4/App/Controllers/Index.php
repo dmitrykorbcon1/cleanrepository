@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models;
+
 class Index extends \App\Controller
 {
     protected function action()

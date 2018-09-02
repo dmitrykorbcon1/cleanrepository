@@ -6,10 +6,12 @@ $uri = $_SERVER['REQUEST_URI'];
 
 $parts = explode('/', $uri);
 
-if (file_exists( __DIR__ . '/App/Controllers/'. $parts[2] . '.php' ) ) { //проверяем, есть ли контроллер с таким именем в директории Controllers
+$path = __DIR__ . '/App/Controllers/' . ucfirst($parts[2]) . '.php';
+
+if (file_exists($path)) {
     $name = ucfirst($parts[2]);
 } else {
-    $name = 'Index';  //если его нет - редирект на главную
+    $name = 'Index';
 }
 
 $class = '\App\Controllers\\' . $name;

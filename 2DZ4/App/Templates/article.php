@@ -24,7 +24,7 @@
     Автор статьи: <?php echo $article->author; ?>
     <br>
     <br>
-    <a href="/2DZ4/index"><button>На главную</button></a>
+    <a href="/2DZ4/Index"><button>На главную</button></a>
 
 </body>
 </html>

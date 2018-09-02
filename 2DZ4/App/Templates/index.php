@@ -12,7 +12,7 @@
     <?php foreach ( $articles as $article ) { ?>
 
         <h2>
-            <a href="/2DZ4/article/?id=<?php echo $article->id; ?>">
+            <a href="/2DZ4/Article/?id=<?php echo $article->id; ?>">
                 <?php echo $article->head; ?>
             </a>
         </h2>
