@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models;
+
 use SebastianBergmann\Timer\Timer;
 
 class Index extends \App\Controller
@@ -12,6 +14,6 @@ class Index extends \App\Controller
 
         $this->view->resource = Timer::resourceUsage();
 
-        $this->view->display(__DIR__ . '/../Templates/index.php');
+        $this->view->display( __DIR__ . '/../Templates/index.php');
     }
 }

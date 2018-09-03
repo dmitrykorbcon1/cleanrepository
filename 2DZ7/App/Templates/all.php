@@ -28,7 +28,8 @@
     <?php } ?>
 </table>
 <br>
-<a href="/2DZ7/edit"><button>Редактировать</button></a>
+<a href="/2DZ7/Edit"><button>Редактирование</button></a>
+<a href="/2DZ7/Index"><button>На главную</button></a>
 <br>
 <div style="position: absolute; bottom: 0px;"><?php echo $resource; ?> </div>
 </body>

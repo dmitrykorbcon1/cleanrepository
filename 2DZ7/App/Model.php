@@ -34,7 +34,9 @@ abstract class Model
             return false;
         }
 
-        return $arr[0] ;
+        if (is_array($arr)) {
+            return $arr[0];
+        }
     }
 
     public function isNew()
