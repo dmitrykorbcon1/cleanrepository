@@ -1,0 +1,25 @@
+﻿1. Создание таблицы товаров и наполнение её данными.
+  
+CREATE TABLE `products` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `head` TEXT, `art` TEXT NOT NULL, `image` TEXT, `price` REAL NOT NULL, `release` TEXT, `quantity` INTEGER);
+  
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Авт. выключатель 1P 10A C 4.5 кА SH201L ABB', '3319', 'http://elektron44.ru/i/p/14122012/05242-1l.jpg', 195, '2010-12-12', 140);
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Авт. выключатель 3P 16A C 4.5 кА SH203L ABB', '0251627', 'http://elektron44.ru/i/p/14122012/05747-1s.jpg', 670, '2013-11-01', 14);
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Диф. автомат 1P+N 25А/30мА тип С АВДТ DSH941R ABB', '0471115', 'http://elektron44.ru/i/p/25112014/44249-1s.jpg', 2670, '2014-03-08', 4);
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Выключатель нагрузки 2P 100А 400V 04334 Legrand', '04334', 'http://elektron44.ru/i/p/13112014/13101-1s.jpg', 1179, '2015-09-08', 5);
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Выключатель дифференциальный УЗО 2P 63А/30мА тип АC F202 ABB', '01260', 'http://elektron44.ru/i/p/12122012/01260-1s.jpg', 3380, '2016-01-03', 2);
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', '12178', 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', 1249, '2015-02-03', 9); 
+  
+  
+2. Проверка на корректность данных
+
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', NULL, 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', 1249, '2015-02-03', 3);
+[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: products.art)
+
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', '12178', 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', -1249, '2015-02-03', 9);
+Ошибки нет. Отрицательная цена товара может быть задана.
+
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', '12178', 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', 1249, '2015-25-26', 9);
+Ошибки нет. Дата задана как текст-может иметь любое значение и любое количество символов.
+
+
+
