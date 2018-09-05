@@ -1,0 +1,37 @@
+2. Проверка на корректность данных
+
+Postgres
+
+INSERT INTO "products" ("head", "art", "image", "price", "release", "quantity") VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', NULL, 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', 1249, '2015-02-03', 9);
+ERROR: null value in column "art" violates not-null constraint
+
+INSERT INTO "products" ("head", "art", "image", "price", "release", "quantity") VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', '12178', 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', -1249, '2015-02-03', 9);
+Ошибки нет. Отрицательная цена товара может быть задана.
+
+INSERT INTO "products" ("head", "art", "image", "price", "release", "quantity") VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', '12178', 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', 1249, '2015-35-42', 9);
+ERROR: date/time field value out of range: "2015-35-42" Подсказка: Perhaps you need a different "datestyle" setting. Позиция: 202
+
+MySQL
+
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', NULL, 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', 1249, '2015-02-03', 3);
+Column 'art' cannot be null
+
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', '12178', 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', -1249, '2015-02-03', 9);
+Data truncation: Out of range value for column 'price' at row 1
+
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', '12178', 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', 1249, '2015-02-03', -9);
+Data truncation: Out of range value for column 'quantity' at row 1
+
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', '12178', 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', 1249, '2015-25-26', 9);
+Data truncation: Incorrect date value: '2015-25-26' for column 'release' at row 1
+
+SQLite
+
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', NULL, 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', 1249, '2015-02-03', 3);
+[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: products.art)
+
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', '12178', 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', -1249, '2015-02-03', 9);
+Ошибки нет. Отрицательная цена товара может быть задана.
+
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', '12178', 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', 1249, '2015-25-26', 9);
+Ошибки нет. Дата задана как текст-может иметь любое значение и любое количество символов.

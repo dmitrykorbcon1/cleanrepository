@@ -9,19 +9,6 @@ INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) 
 INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Выключатель дифференциальный УЗО 2P 63А/30мА тип АC F202 ABB', '01260', 'http://elektron44.ru/i/p/12122012/01260-1s.jpg', 3380, '2016-01-03', 2);
 INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', '12178', 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', 1249, '2015-02-03', 9);
 
-2. Проверка на корректность данных
-
-INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', NULL, 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', 1249, '2015-02-03', 3);
-Column 'art' cannot be null
-
-INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', '12178', 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', -1249, '2015-02-03', 9);
-Data truncation: Out of range value for column 'price' at row 1
-
-INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', '12178', 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', 1249, '2015-02-03', -9);
-Data truncation: Out of range value for column 'quantity' at row 1
-
-INSERT INTO `products` (`head`, `art`, `image`, `price`, `release`, `quantity`) VALUES ('Разрядник ОПС1-D 1P Iн= 5кА 220В Im=10кА ИЭК', '12178', 'http://elektron44.ru/i/p/11012013/12178-1s.jpg', 1249, '2015-25-26', 9);
-Data truncation: Incorrect date value: '2015-25-26' for column 'release' at row 1
 
 
 
