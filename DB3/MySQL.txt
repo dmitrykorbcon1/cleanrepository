@@ -1,0 +1,57 @@
+﻿1. Создание таблицы товаров и наполнение её данными.
+  
+CREATE TABLE `products` (`id` SERIAL, `head` VARCHAR(250), `art` VARCHAR(20) NOT NULL UNIQUE , `image` VARCHAR(250), `price` FLOAT UNSIGNED, `oldprice` FLOAT UNSIGNED,`release` DATE, `quantity` INT UNSIGNED, PRIMARY KEY (id));
+
+2. Создаём процедуру, заполняющую БД 1000 записей (рандомно), в соответствии с типом данных.
+  
+DELIMITER //  
+create procedure add1000()
+ begin
+    DECLARE p INT;
+    SET p=1;
+        while p<=10 do
+        INSERT INTO `products` (`head`, `art`, `image`, `price`, `oldprice`, `release`, `quantity`) VALUES (CONCAT('Товар ', p), CONCAT('Артикул ', p), CONCAT('http://elektron44.ru/image/', p,'.jpg'), -1.01*p+1100, -1.03*p+1400, CONCAT('2017-', ROUND((RAND()*(12-1)+1),0),'-',ROUND((RAND()*(28-1)+1),0)), ROUND((RAND()*100),0)); //заполняем произвольными рандомными данными
+		SET p = p + 1;
+    end while;
+ end;
+//
+
+3. Вызываем процедуру add1000()
+
+call add1000();
+
+4.Запросы:
+
+SELECT * FROM `products` ORDER BY `release` DESC LIMIT 10;
+10 rows retrieved starting from 1 in 38 ms (execution: 12 ms, fetching: 26 ms)
+CREATE INDEX `products_release` ON `products`(`release`);
+EXPLAIN SELECT * FROM `products` ORDER BY `release` DESC LIMIT 10;
+1 row retrieved starting from 1 in 33 ms (execution: 8 ms, fetching: 25 ms)
+Индекс не используется.
+
+SELECT * FROM `products` ORDER BY `price` ASC LIMIT 10;
+10 rows retrieved starting from 1 in 21 ms (execution: 5 ms, fetching: 16 ms)
+CREATE INDEX `products_price` ON `products`(`price`);
+EXPLAIN SELECT * FROM `products` ORDER BY `price` ASC LIMIT 10;
+1 row retrieved starting from 1 in 43 ms (execution: 6 ms, fetching: 37 ms)
+Индекс не используется.
+
+SELECT *,(`oldprice`-`price`) FROM `products` ORDER BY (`oldprice`-`price`) DESC LIMIT 10
+[2018-09-17 23:45:34] 10 rows retrieved starting from 1 in 37 ms (execution: 11 ms, fetching: 26 ms)
+Индекс не используется.
+
+EXPLAIN SELECT *,(`oldprice`-`price`) FROM `products` ORDER BY (`oldprice`-`price`) DESC LIMIT 10;
+1 row retrieved starting from 1 in 25 ms (execution: 8 ms, fetching: 17 ms)
+Индекс не используется.
+
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `oldprice`, `release`, `quantity`) VALUES ('Tовар 500', 'ТEST 500', 'http://elektron44.ru/image/500.jpg', 595, 885, '2017-11-27', 8);
+INSERT INTO `products` (`head`, `art`, `image`, `price`, `oldprice`, `release`, `quantity`) VALUES ('Tовар 1000', 'ТEST 1000', 'http://elektron44.ru/image/1000.jpg', 90, 370, '2017-10-18', 61);
+
+SELECT * FROM `products` WHERE `art` LIKE 'ТEST%'
+[2018-09-18 23:36:21] 2 rows retrieved starting from 1 in 22 ms (execution: 7 ms, fetching: 15 ms)
+EXPLAIN SELECT * FROM `products` WHERE `art` LIKE 'ТEST%';
+Используется индекс art, выборка даёт 2 записи.
+
+
+
+  

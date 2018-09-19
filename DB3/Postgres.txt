@@ -1,0 +1,80 @@
+﻿1. Создание таблицы товаров и наполнение её данными.
+  
+CREATE TABLE "products" ("id" SERIAL, "head" VARCHAR(250), "art" VARCHAR(20) NOT NULL UNIQUE , "image" VARCHAR(250), "price" REAL, "oldprice" REAL,"release" DATE, "quantity" INT, PRIMARY KEY (id));
+
+2. Создаём функцию, заполняющую БД 1000 записей (рандомно), в соответствии с типом данных.
+
+create function add1000()
+RETURNS VOID
+AS $$
+DECLARE
+p INT := 1;
+begin
+  WHILE p<=1000 LOOP
+    INSERT INTO "products" ("head", "art", "image", "price", "oldprice", "release", "quantity")
+    VALUES
+    (CONCAT('Товар ', p), CONCAT('Артикул ', p), CONCAT('http://elektron44.ru/image/', p,'.jpg'), -1.01*p+1100, -1.03*p+1400, '2017-12-17', round(RANDOM()*100));
+    p := p + 1;
+    end LOOP;
+end;
+$$
+LANGUAGE plpgsql;
+
+3. Вызываем функцию add1000()
+
+DO $$
+begin
+PERFORM add1000();
+end $$
+LANGUAGE plpgsql;
+
+4.Запросы:
+SELECT * FROM "products" ORDER BY "price" LIMIT 10;
+10 rows retrieved starting from 1 in 37 ms (execution: 9 ms, fetching: 28 ms)
+CREATE INDEX "products_price" ON "products"("price");
+Limit  (cost=0.28..0.81 rows=10 width=86)
+  ->  Index Scan using products_price on products  (cost=0.28..54.31 rows=1002 width=86)
+
+SELECT *,("oldprice"-"price") FROM "products" ORDER BY ("oldprice"-"price") DESC LIMIT 10;
+10 rows retrieved starting from 1 in 27 ms (execution: 4 ms, fetching: 23 ms)
+Limit  (cost=50.18..50.20 rows=10 width=90)
+  ->  Sort  (cost=50.18..52.68 rows=1002 width=90)
+        Sort Key: ((oldprice - price)) DESC
+        ->  Seq Scan on products  (cost=0.00..28.52 rows=1002 width=90) //индекс не используется
+		
+SELECT * FROM "products" ORDER BY "release" DESC LIMIT 10;
+10 rows retrieved starting from 1 in 18 ms (execution: 4 ms, fetching: 14 ms)
+Limit  (cost=47.67..47.70 rows=10 width=86)
+  ->  Sort  (cost=47.67..50.18 rows=1002 width=86)//индекс не используется
+        Sort Key: release DESC
+        ->  Seq Scan on products  (cost=0.00..26.02 rows=1002 width=86)
+
+INSERT INTO "products" ("head", "art", "image", "price", "oldprice", "release", "quantity") VALUES ('Tовар 500', 'ТEST500', 'http://elektron44.ru/image/500.jpg', 595, 885, '2017-11-27', 8);
+INSERT INTO "products" ("head", "art", "image", "price", "oldprice", "release", "quantity") VALUES ('Tовар 1000', 'ТEST1000', 'http://elektron44.ru/image/1000.jpg', 90, 370, '2017-10-18', 61);
+		
+		
+SELECT * FROM "products" WHERE "art" LIKE 'ТEST%';
+2 rows retrieved starting from 1 in 23 ms (execution: 4 ms, fetching: 19 ms)
+Seq Scan on products  (cost=0.00..28.52 rows=1 width=86)
+  Filter: ((art)::text ~~ 'ТEST%'::text)
+  
+  
+
+
+		
+
+		
+		
+
+
+
+
+
+
+
+
+
+  
+
+
+
