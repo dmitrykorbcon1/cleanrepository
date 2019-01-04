@@ -1,0 +1,63 @@
+img.img.left{
+    float:left;
+    margin:5px 15px 5px 0;
+}
+img.img.right{
+    float:right;
+    margin:5px 0 5px 15px;
+}
+img.img.center{
+    margin:5px auto;
+    display: block;
+}
+img.img {
+    max-height: 320px;
+    max-width: 320px;
+    transition: all 0.3s linear 0s;
+    z-index: 1;
+    border: 1px solid #EEE;
+    background: #FFFFFF;
+    padding: 5px;
+}
+img.img:hover {
+    cursor:pointer;
+    box-shadow: 0 0 5px 5px #eee;
+    border: 1px solid #25A0E3;
+    z-index: 10;
+    transition: all 0.3s linear 0.3s;
+}
+img.img.left:hover{
+    transform:scale(2.5) translate(88px, 30px);
+}
+img.img.right:hover{
+    transform:scale(2.5) translate(-88px, 30px);
+}
+img.img.center:hover {
+    transform:scale(2.5);
+}
+
+.hide, .hide + label ~ div {
+    display: none;
+}
+/* вид текста label */
+.hide + label,
+.hide:checked + label {
+    padding: 0;
+    color: green;
+    cursor: pointer;
+    border-bottom: 1px dotted green;
+}
+/* вид текста label при активном переключателе */
+.hide:checked + label {
+    color: red;
+    border-bottom: 0;
+}
+/* когда чекбокс активен показываем блоки с содержанием  */
+.hide:checked + label + div {
+    display: block;
+    background: #efefef;
+    -moz-box-shadow: inset 3px 3px 10px #7d8e8f;
+    -webkit-box-shadow: inset 3px 3px 10px #7d8e8f;
+    box-shadow: inset 3px 3px 10px #7d8e8f;
+    padding: 10px;
+}
